@@ -1,0 +1,18 @@
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 68.75em; // 1100px
+$bp-large: 58.25em; // 932px
+$bp-medium: 50em; // 800px;
+$bp-small: 37.5em; // 600px;
+$bp-small-mid: 33.75em; // 540px;
+$bp-small-low: 32em; // 512px;
+$bp-smallest: 30em; // 480px;
+$bp-smallest-mid: 27.5em; // 440px;
+$bp-smallest-low: 25.625em; // 410px;
+$bp-smallest-end: 23.75em; // 380px
+
+// MEDIA QUERY MANAGER
+@mixin respond($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+}

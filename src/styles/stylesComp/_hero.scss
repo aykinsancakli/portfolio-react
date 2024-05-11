@@ -1,0 +1,446 @@
+@use '../global' as *;
+
+.section-hero {
+  margin-top: 9.2rem; // Adjusting for fixed navigation bar
+  height: calc(100vh - 9.2rem); // Filling the remaining viewport height
+
+  padding: 8rem 0 9.6rem 0;
+
+  // box-shadow: 0 0.3rem 5px rgba(0, 0, 0, 0.05);
+
+  // box-shadow: 0 0.3rem 5px rgba(0, 0, 0, 0.07);
+  border-bottom: 1px solid #dddddd;
+
+  position: relative;
+  overflow: hidden;
+
+  // Adjusting for fixed navigation bar for mobile
+  @include respond($bp-large) {
+    margin-top: 7rem;
+    height: calc(100vh - 7rem);
+  }
+
+  @include respond($bp-large) {
+    padding: 7.2rem 0 7.2rem 0;
+    height: auto;
+  }
+
+  .hero {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 3.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+
+    position: relative;
+
+    @include respond($bp-large) {
+      flex-direction: column-reverse;
+      gap: 4rem;
+    }
+
+    .heading-primary {
+      font-size: 6rem;
+      font-weight: 700;
+      color: var(--color-text-dark);
+      letter-spacing: -1.5px;
+      line-height: 1.15;
+      margin-bottom: 2.2rem;
+      position: relative;
+
+      transition: all 0.8s ease;
+
+      @include respond($bp-largest) {
+        font-size: 5.8rem;
+      }
+
+      @include respond($bp-large) {
+        font-size: 5.6rem;
+        text-align: center;
+      }
+
+      @include respond($bp-small) {
+        font-size: 4rem;
+      }
+    }
+
+    &__text-box {
+      display: flex;
+      flex-direction: column;
+      max-width: 50rem;
+    }
+
+    .waving {
+      position: absolute;
+      width: 6.5rem;
+      top: 6.5rem;
+      right: 10.5rem;
+
+      animation: wave 2s ease-in-out infinite;
+
+      @include respond($bp-largest) {
+        width: 6rem;
+        top: 6.5rem;
+        right: 12rem;
+      }
+
+      @include respond($bp-large) {
+        width: 5.5rem;
+        top: 6.5rem;
+        right: 4rem;
+      }
+
+      @include respond($bp-small) {
+        width: 4.2rem;
+        top: 4.5rem;
+        right: 9.5rem;
+      }
+
+      @include respond($bp-small-mid) {
+        width: 4.2rem;
+        top: 4.5rem;
+        right: 8rem;
+      }
+
+      @include respond($bp-small-low) {
+        width: 4.2rem;
+        top: 4.5rem;
+        right: 7.1rem;
+      }
+
+      @include respond($bp-smallest) {
+        width: 4.2rem;
+        top: 4.5rem;
+        right: 5rem;
+      }
+
+      @include respond($bp-smallest-mid) {
+        width: 4.2rem;
+        top: 4.5rem;
+        right: 3.1rem;
+      }
+
+      @include respond($bp-smallest-low) {
+        width: 4.2rem;
+        top: 4.5rem;
+        right: 1.7rem;
+      }
+    }
+
+    &__description {
+      font-size: 1.8rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--color-text-light);
+      margin-bottom: 2.2rem;
+
+      transition: all 0.8s ease;
+
+      @include respond($bp-large) {
+        text-align: center;
+      }
+    }
+
+    &__links {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+
+      transition: all 0.8s ease;
+
+      @include respond($bp-large) {
+        justify-content: center;
+      }
+
+      a {
+        color: currentColor;
+      }
+
+      .linkedin-icon path,
+      .github-icon path {
+        transition: all var(--speed-default);
+
+        @include respond($bp-large) {
+          transition: none;
+        }
+      }
+
+      .linkedin-icon:hover path,
+      .github-icon:hover path {
+        fill: var(--color-text-light);
+        transform: translateY(-1.5rem);
+
+        @include respond($bp-large) {
+          fill: var(--color-text-dark);
+          transform: translateY(0);
+        }
+      }
+    }
+
+    &__img-box {
+      background-image: url(../assets/images/1.png);
+      background-size: cover;
+      height: 42rem;
+      width: 42rem;
+
+      transition: all 0.8s ease;
+
+      @include respond($bp-largest) {
+        height: 35.5rem;
+        width: 35.5rem;
+      }
+
+      @include respond($bp-large) {
+        height: 35rem;
+        width: 35rem;
+      }
+
+      @include respond($bp-small) {
+        height: 25rem;
+        width: 25rem;
+        animation: none;
+        // box-shadow: 1rem 1rem 0.3rem #757575;
+      }
+    }
+  }
+
+  // Skills Box
+  .skills {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+
+    position: absolute;
+    // bottom: -8rem;
+    bottom: -5.5rem;
+
+    transition: all 0.8s ease;
+
+    @include respond($bp-largest) {
+      bottom: -10.5rem;
+    }
+
+    @include respond($bp-large) {
+      position: static;
+      margin-top: 6rem;
+      flex-direction: column;
+    }
+
+    @include respond($bp-small) {
+      gap: 3rem;
+    }
+
+    p {
+      color: var(--color-text-dark);
+      font-size: 1.6rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+
+      @include respond($bp-large) {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      span {
+        background-color: var(--color-text-light);
+
+        height: 2.5rem;
+        width: 2px;
+
+        @include respond($bp-large) {
+          width: 14rem;
+          height: 1.5px;
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 3.2rem;
+      flex-wrap: wrap;
+
+      @include respond($bp-small) {
+        justify-content: center;
+      }
+
+      li {
+        cursor: pointer;
+        transition: all 0.5s;
+
+        @include respond($bp-large) {
+          transition: none;
+        }
+
+        &:hover {
+          transform: translateY(-1rem);
+          filter: brightness(1.1);
+
+          @include respond($bp-large) {
+            transform: translateY(0);
+            filter: brightness(1);
+          }
+        }
+      }
+
+      img {
+        display: block;
+        width: 10rem;
+
+        @include respond($bp-largest) {
+          width: 9rem;
+        }
+
+        @include respond($bp-large) {
+          width: 11rem;
+        }
+
+        @include respond($bp-small) {
+          width: 11rem;
+        }
+      }
+    }
+  }
+}
+
+// Waving Animation
+@keyframes wave {
+  0% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.img-visible {
+  transform: translateX(0);
+  box-shadow:
+    2rem 2rem 0.4rem rgba(117, 117, 117, 0.5),
+    4.4rem 4.4rem 0.6rem rgba(117, 117, 117, 0.25);
+
+  @include respond($bp-small) {
+    box-shadow:
+      1rem 1rem 0.3rem rgba(117, 117, 117, 0.8),
+      2.4rem 2.4rem 0.6rem rgba(117, 117, 117, 0.5);
+  }
+}
+
+.img-hidden {
+  transform: translateX(160%);
+  filter: blur(5px);
+  opacity: 0.25;
+  box-shadow: none;
+
+  @include respond($bp-large) {
+    transform: translateX(200%);
+  }
+
+  @include respond($bp-smallest) {
+    transform: translateX(130%);
+  }
+}
+
+.text-visible {
+  transform: translateX(0);
+}
+
+.text-hidden {
+  transform: translateX(-160%);
+  filter: blur(5px);
+  opacity: 0.25;
+
+  @include respond($bp-smallest) {
+    transform: translateX(-130%);
+  }
+}
+
+.skills-visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.skills-hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(14rem);
+}
+
+.spin {
+  animation: spin 0.55s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes breathe {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.loader-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  &__icon {
+    @include respond($bp-small) {
+      width: 56px;
+    }
+  }
+
+  span {
+    font-size: 1.4rem;
+    animation: breathe 1.3s ease-in-out infinite backwards;
+    color: var(--color-text-light);
+  }
+
+  @include respond($bp-large) {
+    top: 35%;
+  }
+}
+
+.loader {
+  width: 175px;
+  height: 25px;
+  background: linear-gradient(#333 0 0) 0/0% no-repeat #ddd;
+  animation: l1 0.85s infinite linear;
+}
+@keyframes l1 {
+  100% {
+    background-size: 100%;
+  }
+}
